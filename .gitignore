@@ -5,5 +5,9 @@
 *.pem
 kubeconfig
 secrets/
-# rendered manifests containing real secret values
-*-secret-local.yaml
+# Secret manifests are never committed. Real values come from
+# `kubectl create secret` at apply time, or an external secret store.
+# Structure goes in the README; values never go in git.
+*secret*.yaml
+*secret*.yml
+!*sealedsecret*.yaml
