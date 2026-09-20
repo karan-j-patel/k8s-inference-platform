@@ -20,3 +20,17 @@ spec:
         envFrom:
         - configMapRef:
             name: podinfo-config
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: podinfo-auth
+              key: api-key
+        volumeMounts:
+        - name: config
+          mountPath: /etc/podinfo-config
+      volumes:
+      - name: config
+        configMap:
+          name: podinfo-config
+
