@@ -15,8 +15,8 @@ Early. The platform is being built one layer at a time.
 |---|---|---|
 | ✅ | Pods — bare Pod, restart semantics, node placement | done |
 | ✅ | Deployments — ReplicaSets, rolling update, rollback | done |
-| ⬜ | Services — ClusterIP, in-cluster DNS | next |
-| ⬜ | LiteLLM gateway — Deployment + Service | |
+| ✅ | Services — ClusterIP, NodePort, EndpointSlices, in-cluster DNS | done |
+| ⬜ | LiteLLM gateway — Deployment + Service | next |
 | ⬜ | Config and Secrets — provider keys, model config | |
 | ⬜ | Probes — startup vs readiness vs liveness | |
 | ⬜ | Storage — Postgres backend on a PVC | |
