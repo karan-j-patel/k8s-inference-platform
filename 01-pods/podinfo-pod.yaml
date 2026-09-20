@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: podinfo
+spec:
+  containers:
+  - name: podinfo
+    image: stefanprodan/podinfo
+    ports:
+    - containerPort: 9898
