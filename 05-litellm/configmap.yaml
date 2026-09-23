@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: litellm-config
+data:
+  config.yaml: |
+    model_list:
+     - model_name: fake-gpt
+       litellm_params:
+         model: openai/gpt-4o
+         api_key: os.environ/OPENAI_API_KEY
