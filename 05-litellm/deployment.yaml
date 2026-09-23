@@ -16,6 +16,27 @@ spec:
       - name: litellm
         image: ghcr.io/berriai/litellm@sha256:87f34979b9f8cb274fac90ca8a4fdda07d8480de22755562a26adeb95ce20d02
         args: ["--config", "/etc/litellm/config.yaml"]
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "100m"
+          limits:
+            memory: "1Gi"
+        readinessProbe:
+          httpGet:
+            path: /health/readiness
+            port: 4000
+        livenessProbe:
+          httpGet:
+            path: /health/liveliness
+            port: 4000
+        startupProbe:
+          httpGet:
+            path: /health/liveliness
+            port: 4000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
         ports: 
         - containerPort: 4000
         envFrom:
@@ -28,4 +49,5 @@ spec:
       - name: config
         configMap:
           name: litellm-config
+
 
